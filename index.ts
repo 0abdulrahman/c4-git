@@ -1,11 +1,11 @@
-interface Post {
-  id: string;
-  title: string;
-}
+export async function deletePost(postId: string) {
+  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
+    method: "DELETE",
+  });
 
-let posts: Post[] = [];
-
-export function deletePost(postId: string): void {
-  posts = posts.filter((post) => post.id !== postId);
-  console.log(`Post ${postId} deleted.`);
+  if (response.ok) {
+    return response.json();
+  } else {
+    throw new Error("Failed to delete post");
+  }
 }
