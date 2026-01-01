@@ -1,1 +1,1 @@
-const message = "hello world 2";
+const message = "hello world from dev";
