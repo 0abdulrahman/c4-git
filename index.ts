@@ -6,6 +6,9 @@ interface Post {
 let posts: Post[] = [];
 
 export function deletePost(postId: string): void {
-  posts = posts.filter((post) => post.id !== postId);
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts/postId');
+
+  const payload = await response.json();
+  
   console.log(`Post ${postId} deleted.`);
 }
